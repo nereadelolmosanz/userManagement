@@ -1,25 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.genetsis.pruebaTecnica;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 
 /**
  *
  * @author nolmo
  */
 @ManagedBean(name = "user", eager = true)
-@ApplicationScoped
+@SessionScoped
 public class User {
 
     private String name;
     private String lastName;
     private String email;
     private String birthDate;
+    
+    private UsersList users = new UsersList();
 
     public User(){
         this.name = "";
@@ -54,15 +52,27 @@ public class User {
         this.birthDate = birthDate;
     }
     
-    
-    public String getSaySomething(){
-        //check if null?
-        if("".equals(name) || name ==null || "".equals(lastName) || lastName ==null
-                || "".equals(email) || email ==null || "".equals(birthDate) || birthDate ==null){
+    public String getAddUser(){
+        if("".equals(name) || name ==null || "".equals(lastName) ||
+                lastName ==null || "".equals(email) || email ==null
+                || "".equals(birthDate) || birthDate ==null){
                 return "Por favor, rellene todos los campos";
+        } else {
+            users.addUser(this);
+        }
+        return users.getShowUsers();
+    }
+    
+    public String getSomething(){
+        if("".equals(name) || name ==null || "".equals(lastName) ||
+                lastName ==null || "".equals(email) || email ==null
+                || "".equals(birthDate) || birthDate ==null){
+                return "Rellene todos los campos";
         }else{
-                return "Usuario: " + name + " " + lastName + " "
-                        + email + " " + birthDate;
+                return "Usuario: " + name + " " + lastName
+                        + " " + email + " " + birthDate;
         }
     }
+    
+    
 }

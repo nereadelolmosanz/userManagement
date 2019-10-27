@@ -10,4 +10,10 @@
             com.genetsis.pruebaTecnica.User
         </managed-bean-class>
     <managed-bean-scope>application</managed-bean-scope>
+    
+    <managed-bean-name>UsersList</managed-bean-name>
+        <managed-bean-class>
+            com.genetsis.pruebaTecnica.UsersList
+        </managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
 </faces-config>
