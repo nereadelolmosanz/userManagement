@@ -1,12 +1,44 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
     <h:head>
-        <title>Facelet Title</title>
+        <title>Genetsis - Prueba técnica</title>
+        <meta http-equiv="content-type" content="text/xhtml; charset=UTF-8" />
     </h:head>
+    
     <h:body>
-        Hello from Facelets
+        <h1> Prueba Técnica - Gestión de usuarios</h1>
+        
+        <h:form>
+            <div>
+                <h:outputLabel value="NOMBRE:" for="nameInput" />
+                <h:inputText id="nameInput" value="#{user.name}"> </h:inputText>
+            </div>
+            <div>
+                <h:outputLabel value="APELLIDOS:" for="lastNameInput" />
+                <h:inputText id="lastNameInput" value="#{user.lastName}"> </h:inputText>
+            </div>
+            <div>
+                <h:outputLabel value="EMAIL:" for="emailInput" />
+                <h:inputText id="emailInput" value="#{user.email}"> </h:inputText>
+            </div>
+            <div>
+                <h:outputLabel value="FECHA DE NACIMIENTO:" for="birthDateInput" />
+                <h:inputText id="birthDateInput" value="#{user.birthDate}"> </h:inputText>
+            </div>
+            <div>
+                <h:commandButton value="createUser">
+                    <f:ajax execute="nameInput lastNameInput" render="output" />
+                </h:commandButton>
+            </div>
+            <div>
+                <h2><h:outputText id="output" value="#{user.saySomething}" /></h2>
+            </div>
+        </h:form>
     </h:body>
 </html>
 
