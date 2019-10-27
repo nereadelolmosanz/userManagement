@@ -1,5 +1,6 @@
 package com.genetsis.pruebaTecnica;
 
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -74,5 +75,7 @@ public class User {
         }
     }
     
-    
+    public List<User> getUserList(){
+        return users.getUsersList();
+    }
 }

@@ -41,7 +41,36 @@
                     <td><h:outputText id="output" value="#{user.addUser}" /></td>
                 </tr>
             </table>
-        </h:form>       
+        </h:form>
+        
+        <h:form>    
+            <rich:dataTable value="#{user.userList}" var="u">
+                <rich:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nombre" />
+                     </f:facet>
+                    <h:outputText value="#{u.name}" />
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">
+                        <h:outputText value="Apellidos" />
+                     </f:facet>
+                    <h:outputText value="#{u.lastName}" />
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">
+                        <h:outputText value="e-mail" />
+                     </f:facet>
+                    <h:outputText value="#{u.email}" />
+                </rich:column>
+                <rich:column>
+                    <f:facet name="header">
+                        <h:outputText value="Fecha de nacimiento" />
+                     </f:facet>
+                    <h:outputText value="#{u.birthDate}" />
+                </rich:column>
+            </rich:dataTable>
+        </h:form>
     </h:body>
 </html>
 
