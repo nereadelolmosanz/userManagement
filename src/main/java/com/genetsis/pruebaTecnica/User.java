@@ -50,19 +50,19 @@ public class User {
     public String getBirthDate(){
         return this.birthDate;
     }
-    public void setDate(String birthDate){
+    public void setBirthDate(String birthDate){
         this.birthDate = birthDate;
     }
     
     
     public String getSaySomething(){
         //check if null?
-        if("".equals(name) || name ==null){
-                return "1.Usuario " + lastName + " creado";
-        }else if("".equals(lastName) || lastName ==null){
-                return "2.Usuario " + name + " creado";
+        if("".equals(name) || name ==null || "".equals(lastName) || lastName ==null
+                || "".equals(email) || email ==null || "".equals(birthDate) || birthDate ==null){
+                return "Por favor, rellene todos los campos";
         }else{
-                return "3.Usuario " + name + " " + lastName + " creado";
+                return "Usuario: " + name + " " + lastName + " "
+                        + email + " " + birthDate;
         }
     }
 }

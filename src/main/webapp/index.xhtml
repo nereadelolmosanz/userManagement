@@ -15,28 +15,28 @@
         
         <h:form>
             <div>
-                <h:outputLabel value="NOMBRE:" for="nameInput" />
+                <h:outputLabel value="NOMBRE: " for="nameInput" />
                 <h:inputText id="nameInput" value="#{user.name}"> </h:inputText>
             </div>
             <div>
-                <h:outputLabel value="APELLIDOS:" for="lastNameInput" />
+                <h:outputLabel value="APELLIDOS: " for="lastNameInput" />
                 <h:inputText id="lastNameInput" value="#{user.lastName}"> </h:inputText>
             </div>
             <div>
-                <h:outputLabel value="EMAIL:" for="emailInput" />
+                <h:outputLabel value="EMAIL: " for="emailInput" />
                 <h:inputText id="emailInput" value="#{user.email}"> </h:inputText>
             </div>
             <div>
-                <h:outputLabel value="FECHA DE NACIMIENTO:" for="birthDateInput" />
+                <h:outputLabel value="FECHA DE NACIMIENTO: " for="birthDateInput" />
                 <h:inputText id="birthDateInput" value="#{user.birthDate}"> </h:inputText>
             </div>
             <div>
-                <h:commandButton value="createUser">
-                    <f:ajax execute="nameInput lastNameInput" render="output" />
+                <h:commandButton value="Añadir usuario">
+                    <f:ajax execute="nameInput lastNameInput emailInput birthDateInput" render="CreateOutput" />
                 </h:commandButton>
             </div>
             <div>
-                <h2><h:outputText id="output" value="#{user.saySomething}" /></h2>
+                <h2><h:outputText id="CreateOutput" value="#{user.saySomething}" /></h2>
             </div>
         </h:form>
     </h:body>
