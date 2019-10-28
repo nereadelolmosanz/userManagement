@@ -33,6 +33,10 @@ public class UsersList {
         
     }
     
+    public void removeUser(User user){
+        users.remove(user);
+    }
+    
     public String getShowUsers(){
         String usersList = "No hay usuarios";
         
@@ -48,9 +52,7 @@ public class UsersList {
         return usersList;
     }
     
-    public void removeUser(User user){
-        users.remove(user);
-    }
+    
     
     
     

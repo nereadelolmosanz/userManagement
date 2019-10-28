@@ -2,6 +2,7 @@ package com.genetsis.pruebaTecnica;
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 
@@ -18,13 +19,20 @@ public class User {
     private String email;
     private String birthDate;
     
-    private UsersList users = new UsersList();
+    //private UsersList users = new UsersList();
 
     public User(){
         this.name = "";
         this.lastName = "";
         this.email = "";
         this.birthDate = "";                
+    }
+    
+    public User(String name, String lastName, String email, String birthDate){
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.birthDate = birthDate;      
     }
     
     public String getName(){
@@ -53,6 +61,8 @@ public class User {
         this.birthDate = birthDate;
     }
     
+    
+    /*
     public String getAddUser(){
         if("".equals(name) || name ==null || "".equals(lastName) ||
                 lastName ==null || "".equals(email) || email ==null
@@ -62,7 +72,7 @@ public class User {
             users.addUser(this);
         }
         return users.getShowUsers();
-    }
+    }*/
     
     public String getSomething(){
         if("".equals(name) || name ==null || "".equals(lastName) ||
@@ -75,7 +85,7 @@ public class User {
         }
     }
     
-    public List<User> getUserList(){
+    /*public List<User> getUserList(){
         return users.getUsersList();
-    }
+    }*/
 }
