@@ -5,6 +5,7 @@
  */
 package com.genetsis.pruebaTecnica;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -18,80 +19,72 @@ import javax.faces.bean.ManagedProperty;
 @ApplicationScoped
 public class Management {
     
-    @ManagedProperty(value = "#{userBean}")
-    private User userBean = new User();
+    @ManagedProperty(value = "#{user}")
+    private User user = new User();
     
-    @ManagedProperty(value = "#{userListBean}")
-    private UsersList usersListBean = new UsersList();
+    private List<User> users = new ArrayList<>();
     
     
-    public User getUserBean(){
-        return this.userBean;
+    
+    public User getUser(){
+        return this.user;
     }
     
-    public void setUserBean(User userBean){
-        this.userBean = userBean;
-    }
+    public void setUser(User user){
+        this.user = user;
+    }    
     
-    public UsersList getUsersListBean() {
-        return usersListBean;
-    }
-
-    public void setUsersListBean(UsersList usersListBean) {
-        this.usersListBean = usersListBean;
-    }
-    
-    
+    //About User
     
     public String getUserName(){
-        return userBean.getName();
+        return this.user.getName();
     }
     public void setUserName(String name){
-        this.userBean.setName(name);
+        this.user.setName(name);
     }
     public String getUserLastName(){
-        return userBean.getLastName();
+        return this.user.getLastName();
     }
     public void setUserLastName(String lastName){
-        this.userBean.setLastName(lastName);
+        this.user.setLastName(lastName);
     }
     public String getUserEmail(){
-        return userBean.getEmail();
+        return this.user.getEmail();
     }
     public void setUserEmail(String email){
-        this.userBean = userBean;
+        this.user.setEmail(email);
     }
     public String getUserBirthDate(){
-        return userBean.getBirthDate();
+        return this.user.getBirthDate();
     }
     public void setUserBirthDate(String birthDate){
-        this.userBean.setBirthDate(birthDate);
+        this.user.setBirthDate(birthDate);
     }
     
+    //About UserList
+
+    public List<User> getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
       
-    public List<User> getUsersList(){
-        return usersListBean.getUsersList();
-    }
-    
-    
-    
-    public void addUserBean(User userBean){
-        usersListBean.addUser(userBean);
-    }
-    
-    public void removeUserBean(User userBean){
-        usersListBean.removeUser(userBean);
-    }
-    
-    
-    
-    
-    public String getAddUser(){
-        if (userBean.getName() == null || "".equals(userBean.getName()) || "".equals(userBean.getLastName()) || userBean.getLastName()==null || "".equals(userBean.getEmail()) || userBean.getEmail() ==null || "".equals(userBean.getBirthDate()) || userBean.getBirthDate() ==null){
-                return "Por favor, rellene todos los campos";
-        } else {
-            usersListBean.addUser(userBean);
+    public String addUser(){
+        this.users.add(this.getUser());
+        String msg = "";
+        if(this.user == null || this.getUserName()==null){
+            msg = "No hay usuarios.";
         }
-        return usersListBean.getShowUsers();
+        else{
+            msg = "Usuario: " + this.getUserName()
+                    + " " + this.getUserLastName()
+                    + " " + this.getUserEmail()
+                    + " " + this.getUserBirthDate();
+        }
+        return msg;
     }
+    
+    
 }

@@ -1,9 +1,8 @@
 package com.genetsis.pruebaTecnica;
 
-import java.util.List;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 
 
 /**
@@ -11,16 +10,19 @@ import javax.faces.bean.SessionScoped;
  * @author nolmo
  */
 @ManagedBean(name = "user", eager = true)
-@SessionScoped
+@ApplicationScoped
 public class User {
 
-    private String name;
-    private String lastName;
-    private String email;
-    private String birthDate;
+    @ManagedProperty(value="#{name}")
+    private String name = "";
+    @ManagedProperty(value="#{lastName}")
+    private String lastName = "";
+    @ManagedProperty(value="#{email}")
+    private String email = "";
+    @ManagedProperty(value="#{birthDate}")
+    private String birthDate = "";
     
-    //private UsersList users = new UsersList();
-
+    
     public User(){
         this.name = "";
         this.lastName = "";
@@ -59,33 +61,17 @@ public class User {
     }
     public void setBirthDate(String birthDate){
         this.birthDate = birthDate;
-    }
+    }   
     
-    
-    /*
-    public String getAddUser(){
-        if("".equals(name) || name ==null || "".equals(lastName) ||
-                lastName ==null || "".equals(email) || email ==null
-                || "".equals(birthDate) || birthDate ==null){
-                return "Por favor, rellene todos los campos";
-        } else {
-            users.addUser(this);
+    public String getData(){
+        String msg = "";
+        if(this.name == null){
+            msg = "VACIO";
         }
-        return users.getShowUsers();
-    }*/
-    
-    public String getSomething(){
-        if("".equals(name) || name ==null || "".equals(lastName) ||
-                lastName ==null || "".equals(email) || email ==null
-                || "".equals(birthDate) || birthDate ==null){
-                return "Rellene todos los campos";
-        }else{
-                return "Usuario: " + name + " " + lastName
-                        + " " + email + " " + birthDate;
+        else{
+            msg = "Usuario: " + this.name + " " + this.lastName
+                        + " " + this.email + " " + this.birthDate;
         }
+        return msg;
     }
-    
-    /*public List<User> getUserList(){
-        return users.getUsersList();
-    }*/
 }

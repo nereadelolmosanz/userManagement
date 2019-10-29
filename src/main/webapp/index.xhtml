@@ -18,33 +18,35 @@
             <table>
                 <tr>
                     <td><h:outputLabel value="NOMBRE: " for="nameInput" /></td>
-                    <td><h:inputText id="nameInput" required="true" requiredMessage="El campo nombre es obligatorio" value="#{management.userName}"> </h:inputText></td>
+                    <td><h:inputText id="nameInput" required="true" requiredMessage="El campo nombre es obligatorio" value="#{user.name}"> </h:inputText></td>
                 </tr>
                 <tr>
                     <td><h:outputLabel value="APELLIDOS: " for="lastNameInput" /></td>
-                    <td><h:inputText id="lastNameInput" required="true" requiredMessage="El campo  apellidos es obligatorio" value="#{management.userLastName}"> </h:inputText></td>
+                    <td><h:inputText id="lastNameInput" required="true" requiredMessage="El campo  apellidos es obligatorio" value="#{user.lastName}"> </h:inputText></td>
                 </tr>
                 <tr>
                     <td><h:outputLabel value="EMAIL: " for="emailInput" /></td>
-                    <td><h:inputText id="emailInput" required="true" requiredMessage="El campo email es obligatorio" value="#{management.userEmail}"> </h:inputText></td>
+                    <td><h:inputText id="emailInput" required="true" requiredMessage="El campo email es obligatorio" value="#{user.email}"> </h:inputText></td>
                 </tr>
                 <tr>
                     <td><h:outputLabel value="FECHA DE NACIMIENTO: " for="birthDateInput" /></td>
-                    <td><h:inputText id="birthDateInput" required="true" requiredMessage="El campo  fecha de nacimiento es obligatorio" value="#{management.userBirthDate}"> </h:inputText></td>
+                    <td><h:inputText id="birthDateInput" required="true" requiredMessage="El campo  fecha de nacimiento es obligatorio" value="#{user.birthDate}"> </h:inputText></td>
                 </tr>
                 <tr>
-                    <td><h:commandButton value="Añadir usuario" >
+                    <td>
+                        <h:commandButton value="Añadir usuario" >
                         <f:ajax execute="nameInput lastNameInput emailInput birthDateInput" render="output" />
-                    </h:commandButton></td>
+                        </h:commandButton>
+                    </td>
                 </tr>
                 <tr>
-                    <td><h:outputText id="output" value="#{management.addUserBean}" /></td>
+                    <td>
+                        <h:outputText id="output" value="#{management.addUser()}"/>
+                    </td>
                 </tr>
             </table>
-        </h:form>
-        
-        <h:form >    
-            <rich:dataTable id="list" value="#{management.usersList}" var="u">
+            
+            <rich:dataTable id="list" value="#{management.users}" var="u">
                 <rich:column>
                     <f:facet name="header">
                         <h:outputText value="Nombre" />
@@ -82,6 +84,8 @@
                 </rich:column>
             </rich:dataTable>
         </h:form>
+        
+        
     </h:body>
 </html>
 
