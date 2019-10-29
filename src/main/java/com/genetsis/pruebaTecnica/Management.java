@@ -76,7 +76,9 @@ public class Management {
       
     
     public void addUser(){
-        this.users.add(this.getUser());
+        User u = new User(this.getUserName(),this.getUserLastName(),
+                           this.getUserEmail(),this.getUserBirthDate());
+        this.users.add(u);
  
             /*msg = "Usuario: " + this.getUserName()
                     + " " + this.getUserLastName()
