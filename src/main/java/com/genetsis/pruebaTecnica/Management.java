@@ -23,8 +23,11 @@ public class Management {
     private User user = new User();
     
     private List<User> users = new ArrayList<>();
-    
-    
+
+    public Management() {
+        this.user = new User();
+        this.users = new ArrayList<>();
+    }
     
     public User getUser(){
         return this.user;
@@ -71,20 +74,18 @@ public class Management {
         this.users = users;
     }
       
-    public String addUser(){
+    
+    public void addUser(){
         this.users.add(this.getUser());
-        String msg = "";
-        if(this.user == null || this.getUserName()==null){
-            msg = "No hay usuarios.";
-        }
-        else{
-            msg = "Usuario: " + this.getUserName()
+ 
+            /*msg = "Usuario: " + this.getUserName()
                     + " " + this.getUserLastName()
                     + " " + this.getUserEmail()
-                    + " " + this.getUserBirthDate();
-        }
-        return msg;
+                    + " " + this.getUserBirthDate();*/
     }
     
+    public void removeUser(){
+        this.users.remove(this.getUser());
+    }
     
 }

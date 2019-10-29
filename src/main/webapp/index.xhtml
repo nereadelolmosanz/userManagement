@@ -34,18 +34,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <h:commandButton value="Añadir usuario" >
-                        <f:ajax execute="nameInput lastNameInput emailInput birthDateInput" render="output" />
+                        <h:commandButton value="Añadir usuario" action="#{management.addUser()}" >
+                            <f:ajax execute="nameInput lastNameInput emailInput birthDateInput" render=":h_list" />
                         </h:commandButton>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <h:outputText id="output" value="#{management.addUser()}"/>
-                    </td>
-                </tr>
             </table>
+        </h:form>
             
+        <h:form id="h_list">
             <rich:dataTable id="list" value="#{management.users}" var="u">
                 <rich:column>
                     <f:facet name="header">
@@ -78,8 +75,8 @@
                     <h:commandButton value="Editar usuario" >
                         <f:ajax event="click" render="list" />
                     </h:commandButton>
-                    <h:commandButton value="Borrar usuario" >
-                        <f:ajax event="click" render="list" />
+                    <h:commandButton value="Borrar usuario" action="#{management.removeUser()}" >
+                        <f:ajax render=":h_list" />
                     </h:commandButton>
                 </rich:column>
             </rich:dataTable>
