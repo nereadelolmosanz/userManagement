@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.validation.constraints.Pattern;
 
 
 /**
@@ -15,11 +16,18 @@ import javax.faces.bean.ManagedProperty;
 public class User {
 
     @ManagedProperty(value="#{name}")
+    @Pattern (regexp="^\\D+$", message="No introduzca números en este campo.")
     private String name = "";
+    
     @ManagedProperty(value="#{lastName}")
+    @Pattern (regexp="^\\D+$", message="No introduzca números en este campo.")
     private String lastName = "";
+    
     @ManagedProperty(value="#{email}")
+    @Pattern (regexp="\\S+@\\S+", message="El formato debe ser direccion@tu.dominio")
+    
     private String email = "";
+    
     @ManagedProperty(value="#{birthDate}")
     private Date birthDate = new Date();
     

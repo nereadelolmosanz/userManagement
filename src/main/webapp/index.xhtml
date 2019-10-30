@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:rich="http://richfaces.org/rich">
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
     
     <h:head>
         <title>Genetsis - Prueba técnica</title>
@@ -13,21 +14,44 @@
     
     <h:body>
         <h1> Prueba Técnica - Gestión de usuarios</h1>
-        <br></br>
+        <rich:panel>
         <h4>Añadir usuarios</h4>
         <h:form>
             <table>
                 <tr>
                     <td><h:outputLabel value="Nombre: " for="nameInput" /></td>
-                    <td><h:inputText id="nameInput" required="true" requiredMessage="El campo nombre es obligatorio" value="#{user.name}"> </h:inputText></td>
+                    <td>
+                        <h:inputText id="nameInput" value="#{user.name}">
+                            <a4j:ajax render="nameMsg"/>
+                        </h:inputText>
+                    </td>
+                    <td>
+                        <h:message for="nameInput" id="nameMsg" style = "color:red"></h:message>
+                    </td>
                 </tr>
                 <tr>
                     <td><h:outputLabel value="Apellidos: " for="lastNameInput" /></td>
-                    <td><h:inputText id="lastNameInput" required="true" requiredMessage="El campo  apellidos es obligatorio" value="#{user.lastName}"> </h:inputText></td>
+                    <td>
+                        <h:inputText id="lastNameInput" value="#{user.lastName}">
+                            <a4j:ajax render="lastNameMsg"/>
+                        </h:inputText>
+                    </td>
+                    <td>
+                        <h:message for="lastNameInput" id="lastNameMsg" style = "color:red"></h:message>
+                    </td>
+
                 </tr>
                 <tr>
                     <td><h:outputLabel value="Email: " for="emailInput" /></td>
-                    <td><h:inputText id="emailInput" required="true" requiredMessage="El campo email es obligatorio" value="#{user.email}"> </h:inputText></td>
+                    <td>
+                        <h:inputText id="emailInput" value="#{user.email}">
+                            <a4j:ajax render="emailMsg"/>
+                        </h:inputText>
+                    </td>
+                    <td>
+                        <h:message for="emailInput" id="emailMsg" style = "color:red"></h:message>
+                    </td>
+
                 </tr>
                 <tr>
                     <td><h:outputLabel value="Fecha de nacimiento: " for="birthDateInput" /></td>
@@ -39,9 +63,10 @@
                             <f:ajax execute="nameInput lastNameInput emailInput birthDateInput" render=":h_list" />
                         </h:commandButton>
                     </td>
+                    
                 </tr>
             </table>
-        </h:form>
+        </h:form></rich:panel>
     <br></br>
     <br></br>
         <h:form id="h_list">
@@ -83,6 +108,7 @@
                 </rich:column>
             </rich:dataTable>
         </h:form>
+        
         
         
     </h:body>
