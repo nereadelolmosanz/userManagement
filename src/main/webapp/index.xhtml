@@ -13,28 +13,29 @@
     
     <h:body>
         <h1> Prueba Técnica - Gestión de usuarios</h1>
-        
+        <br></br>
+        <h4>Añadir usuarios</h4>
         <h:form>
             <table>
                 <tr>
-                    <td><h:outputLabel value="NOMBRE: " for="nameInput" /></td>
+                    <td><h:outputLabel value="Nombre: " for="nameInput" /></td>
                     <td><h:inputText id="nameInput" required="true" requiredMessage="El campo nombre es obligatorio" value="#{user.name}"> </h:inputText></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="APELLIDOS: " for="lastNameInput" /></td>
+                    <td><h:outputLabel value="Apellidos: " for="lastNameInput" /></td>
                     <td><h:inputText id="lastNameInput" required="true" requiredMessage="El campo  apellidos es obligatorio" value="#{user.lastName}"> </h:inputText></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="EMAIL: " for="emailInput" /></td>
+                    <td><h:outputLabel value="Email: " for="emailInput" /></td>
                     <td><h:inputText id="emailInput" required="true" requiredMessage="El campo email es obligatorio" value="#{user.email}"> </h:inputText></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="FECHA DE NACIMIENTO: " for="birthDateInput" /></td>
+                    <td><h:outputLabel value="Fecha de nacimiento: " for="birthDateInput" /></td>
                     <td><h:inputText id="birthDateInput" required="true" requiredMessage="El campo  fecha de nacimiento es obligatorio" value="#{user.birthDate}"> </h:inputText></td>
                 </tr>
                 <tr>
                     <td>
-                        <h:commandButton value="Añadir usuario" action="#{management.addUser()}" >
+                        <h:commandButton value="Añadir" action="#{management.addUser()}" >
                             <f:ajax execute="nameInput lastNameInput emailInput birthDateInput" render=":h_list" />
                         </h:commandButton>
                     </td>
@@ -74,9 +75,6 @@
                     <f:facet name="header">
                         <h:outputText value="Acciones" />
                      </f:facet>
-                    <h:commandButton value="Editar usuario" >
-                        <f:ajax event="click" render=":h_list" />
-                    </h:commandButton>
                     <h:commandLink value="Borrar usuario" action="#{management.removeUser(u)}" >
                         <f:ajax render=":h_list" />
                     </h:commandLink>
