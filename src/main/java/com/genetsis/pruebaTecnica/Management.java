@@ -6,6 +6,7 @@
 package com.genetsis.pruebaTecnica;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -57,10 +58,10 @@ public class Management {
     public void setUserEmail(String email){
         this.user.setEmail(email);
     }
-    public String getUserBirthDate(){
+    public Date getUserBirthDate(){
         return this.user.getBirthDate();
     }
-    public void setUserBirthDate(String birthDate){
+    public void setUserBirthDate(Date birthDate){
         this.user.setBirthDate(birthDate);
     }
     

@@ -1,5 +1,6 @@
 package com.genetsis.pruebaTecnica;
 
+import java.util.Date;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -20,17 +21,17 @@ public class User {
     @ManagedProperty(value="#{email}")
     private String email = "";
     @ManagedProperty(value="#{birthDate}")
-    private String birthDate = "";
+    private Date birthDate = new Date();
     
     
     public User(){
         this.name = "";
         this.lastName = "";
         this.email = "";
-        this.birthDate = "";                
+        this.birthDate = new Date();                
     }
     
-    public User(String name, String lastName, String email, String birthDate){
+    public User(String name, String lastName, String email, Date birthDate){
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -56,10 +57,10 @@ public class User {
         this.email = email;
     }
     
-    public String getBirthDate(){
+    public Date getBirthDate(){
         return this.birthDate;
     }
-    public void setBirthDate(String birthDate){
+    public void setBirthDate(Date birthDate){
         this.birthDate = birthDate;
     }   
     

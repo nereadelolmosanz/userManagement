@@ -31,7 +31,7 @@
                 </tr>
                 <tr>
                     <td><h:outputLabel value="Fecha de nacimiento: " for="birthDateInput" /></td>
-                    <td><h:inputText id="birthDateInput" required="true" requiredMessage="El campo  fecha de nacimiento es obligatorio" value="#{user.birthDate}"> </h:inputText></td>
+                    <td><rich:calendar id="birthDateInput" value="#{user.birthDate}" datePattern="dd/M/yy"/></td>
                 </tr>
                 <tr>
                     <td>
