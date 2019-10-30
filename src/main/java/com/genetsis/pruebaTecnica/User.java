@@ -64,15 +64,4 @@ public class User {
         this.birthDate = birthDate;
     }   
     
-    public String getData(){
-        String msg = "";
-        if(this.name == null){
-            msg = "VACIO";
-        }
-        else{
-            msg = "Usuario: " + this.name + " " + this.lastName
-                        + " " + this.email + " " + this.birthDate;
-        }
-        return msg;
-    }
 }
