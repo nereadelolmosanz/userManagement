@@ -75,9 +75,9 @@
                     <h:commandButton value="Editar usuario" >
                         <f:ajax event="click" render=":h_list" />
                     </h:commandButton>
-                    <h:commandButton value="Borrar usuario" action="#{management.removeUser()}" >
+                    <h:commandLink value="Borrar usuario" action="#{management.removeUser(u)}" >
                         <f:ajax render=":h_list" />
-                    </h:commandButton>
+                    </h:commandLink>
                 </rich:column>
             </rich:dataTable>
         </h:form>

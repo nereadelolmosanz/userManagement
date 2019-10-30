@@ -86,8 +86,8 @@ public class Management {
                     + " " + this.getUserBirthDate();*/
     }
     
-    public void removeUser(){
-        this.users.remove(this.getUser());
+    public void removeUser(User u){
+        this.users.remove(u);
     }
     
 }
