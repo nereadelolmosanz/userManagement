@@ -18,5 +18,5 @@ se pueden introducir números)
 (Será necesario tener un servidor instalado, por ejemplo Tomcat)
 1. Acceder a la carpeta del proyecto y ejecutar _mvn clean compile instal_
 2. Desplegar el proyecto compilado _UserManagement-1.0.war_ en el servidor.
-3. Acceder a <ip-maquina-servidor>:<puerto-servidor>/UserManagement-1.0/faces/index.xhtml mediante un navegador.
+3. Acceder a ip-maquina-servidor:puerto-servidor/UserManagement-1.0/faces/index.xhtml mediante un navegador.
   * Ejemplo: http://localhost:8080/UserManagement-1.0/faces/index.xhtml
