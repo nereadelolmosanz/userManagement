@@ -1,10 +1,7 @@
 # Prueba técnica para Genetsis
 
-<<<<<<< HEAD
+
 # Funcionalidad desarrollada
-=======
-#Funcionalidad desarrollada
->>>>>>> d7e8a3b2219bf2741109376a902b4db623b0f6cb
 1. Proyecto web JSF que permita la creación, listado y borrado de usuarios (en memoria). El proyecto se debe construir con Maven.
 La información los usuarios será:
   * Email
