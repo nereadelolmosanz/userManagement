@@ -68,11 +68,12 @@
             </table>
         </h:form></rich:panel>
     <br></br>
-    <br></br>
         <h:form id="h_list">
-            <p>Listado de usuarios</p>
+            <p>Listado de usuarios (haga doble click para editar los campos)</p>
             <rich:dataTable id="list" value="#{management.users}" var="u">
-                <rich:column>
+                <rich:column
+                    filterValue="#{u.name}"
+                    filterExpression="">
                     <f:facet name="header">
                         <h:outputText value="Nombre" />
                      </f:facet>
@@ -92,7 +93,7 @@
                 </rich:column>
                 <rich:column>
                     <f:facet name="header">
-                        <h:outputText value="e-mail" />
+                        <h:outputText value="e-mail"/>
                      </f:facet>
                     <rich:inplaceInput value="#{u.email}" editEvent="dblclick">
                         <a4j:ajax event="change" render="editEmail" />
@@ -103,7 +104,7 @@
                     <f:facet name="header">
                         <h:outputText value="Fecha de nacimiento" />
                      </f:facet>
-                    <h:outputText value="#{u.birthDate}">
+                    <h:outputText value="#{u.birthDate}" >
                         <f:convertDateTime pattern="dd/MM/yyyy" />
                     </h:outputText>
                 </rich:column>
